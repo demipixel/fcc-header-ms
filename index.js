@@ -11,7 +11,7 @@ var HOME = 'Header microservice for FreeCodeCamp';
 app.get('/', (req, res) => {
   try {
   res.json({
-    ipaddress: req.ip,
+    ipaddress: req.ip.replace('::ffff:', ''),
     language: req.headers['accept-language'].split(',')[0],
     software: req.headers['user-agent'].match(/\((.*?)\)/)[1]
   });
